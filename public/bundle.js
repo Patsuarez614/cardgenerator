@@ -98,7 +98,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, "body {\n  background: green; }\n\n.card {\n  background: white;\n  display: block;\n  margin: auto;\n  height: 400px;\n  width: 275px;\n  padding: 20px;\n  border-radius: 10px;\n  position: relative;\n  font-size: 70px;\n  text-align: center; }\n  .card .top-suit {\n    position: absolute;\n    top: 20px;\n    left: 20px; }\n  .card .bottom-suit {\n    position: absolute;\n    bottom: 20px;\n    right: 20px; }\n\n.number {\n  padding-top: 150px; }\n", ""]);
+exports.push([module.i, "body {\n  background: green; }\n\n.card {\n  background: white;\n  display: block;\n  margin: auto;\n  height: 400px;\n  width: 275px;\n  padding: 20px;\n  border-radius: 10px;\n  position: relative;\n  font-size: 90px;\n  text-align: center; }\n  .card .top-suit {\n    position: absolute;\n    top: 20px;\n    left: 20px; }\n  .card .bottom-suit {\n    position: absolute;\n    bottom: 20px;\n    right: 20px; }\n\n.number {\n  padding-top: 140px; }\n", ""]);
 
 // exports
 
@@ -697,14 +697,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.onload = () => {
-    document.querySelector('.card').classList.add(generateRandomSuit());
-    document.querySelector('.card').classList.add(generateRandomNumber());
+    var card = document.querySelector('.card');
+    var top = document.querySelector('.top-suit').innerHTML = generateRandomSuit(0, 3);
+    var bottom = document.querySelector('.bottom-suit').innerHTML = top;
+    var number = document.querySelector('.number').innerHTML = generateRandomNumber(0, 13);
 };
 
 var generateRandomNumber = () => {
     var numbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
     var indexNumbers = Math.floor(Math.random() * numbers.length);
-    return [indexNumbers];
+    return numbers[indexNumbers];
 };
 var generateRandomSuit = () => {
     var suit = ["\u2660", "\u2663", "\u2665", "\u2666"];
